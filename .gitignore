@@ -5,6 +5,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+./images
 
 # C extensions
 *.so
@@ -172,4 +173,5 @@ cython_debug/
 /tables
 /results
 events.out.tfevents*
+/images
 
