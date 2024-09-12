@@ -126,6 +126,14 @@ def overfit(cfg_dict: DictConfig) -> None:
     )
     shutil.make_archive(colmap_path, "zip", output_dir, "colmap")
 
+    #mannually save depth maps for evaluation purpose
+    # Convert tensor to list
+    tensor_list = exports.depths.tolist()
+
+    # Save to JSON file
+    with open('depth_maps.json', 'w') as json_file:
+        json.dump(tensor_list, json_file)
+
     if cfg.local_save_root is not None:
         # Save the COLMAP-style output.
         cfg.local_save_root.mkdir(exist_ok=True, parents=True)
